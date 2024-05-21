@@ -1,6 +1,6 @@
 name = "XRootD_jll"
 uuid = "b6113df7-b24e-50c0-846f-35a2e36cb9d5"
-version = "5.5.4+0"
+version = "5.6.9+0"
 
 [deps]
 JLLWrappers = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
@@ -18,3 +18,5 @@ JSON_C_jll = "9cdfc4e7-e793-5089-b6f7-569a57a60f0a"
 JLLWrappers = "1.2.0"
 julia = "1.6"
 OpenSSL_jll = "1.1.10"
+Libdl = "1"
+Artifacts = "1"
