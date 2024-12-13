@@ -1,6 +1,6 @@
 name = "XRootD_jll"
 uuid = "b6113df7-b24e-50c0-846f-35a2e36cb9d5"
-version = "5.7.1+0"
+version = "5.7.2+0"
 
 [deps]
 JLLWrappers = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
