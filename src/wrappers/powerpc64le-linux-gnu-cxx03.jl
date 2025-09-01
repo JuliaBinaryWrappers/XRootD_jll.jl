@@ -10,48 +10,48 @@ using Zlib_jll
 using CompilerSupportLibraries_jll
 JLLWrappers.@generate_wrapper_header("XRootD")
 JLLWrappers.@declare_library_product(libXrdAppUtils, "libXrdAppUtils.so.2")
-JLLWrappers.@declare_library_product(libXrdCl, "libXrdCl.so.3")
-JLLWrappers.@declare_library_product(libXrdCryptoLite, "libXrdCryptoLite.so.2")
-JLLWrappers.@declare_library_product(libXrdFfs, "libXrdFfs.so.3")
-JLLWrappers.@declare_executable_product(cconfig)
-JLLWrappers.@declare_executable_product(frm_admin)
 JLLWrappers.@declare_file_product(libXrdBlacklistDecision)
 JLLWrappers.@declare_file_product(libXrdBwm)
-JLLWrappers.@declare_file_product(libXrdCksCalczcrc32)
-JLLWrappers.@declare_file_product(libXrdClProxyPlugin)
+JLLWrappers.@declare_library_product(libXrdCl, "libXrdCl.so.3")
 JLLWrappers.@declare_file_product(libXrdCmsRedirectLocal)
 JLLWrappers.@declare_library_product(libXrdCrypto, "libXrdCrypto.so.2")
 JLLWrappers.@declare_file_product(libXrdCryptossl)
+JLLWrappers.@declare_library_product(libXrdFfs, "libXrdFfs.so.3")
+JLLWrappers.@declare_library_product(libXrdPosix, "libXrdPosix.so.3")
+JLLWrappers.@declare_library_product(libXrdSsiLib, "libXrdSsiLib.so.2")
+JLLWrappers.@declare_library_product(libXrdUtils, "libXrdUtils.so.3")
+JLLWrappers.@declare_executable_product(cmsd)
+JLLWrappers.@declare_executable_product(frm_admin)
+JLLWrappers.@declare_executable_product(frm_purged)
+JLLWrappers.@declare_executable_product(frm_xfrd)
+JLLWrappers.@declare_file_product(libXrdCksCalczcrc32)
+JLLWrappers.@declare_file_product(libXrdClProxyPlugin)
+JLLWrappers.@declare_library_product(libXrdCryptoLite, "libXrdCryptoLite.so.2")
 JLLWrappers.@declare_file_product(libXrdHttp)
 JLLWrappers.@declare_library_product(libXrdHttpUtils, "libXrdHttpUtils.so.2")
 JLLWrappers.@declare_file_product(libXrdN2No2p)
 JLLWrappers.@declare_file_product(libXrdOssCsi)
 JLLWrappers.@declare_file_product(libXrdOssSIgpfsT)
 JLLWrappers.@declare_file_product(libXrdPfc)
-JLLWrappers.@declare_library_product(libXrdPosix, "libXrdPosix.so.3")
 JLLWrappers.@declare_library_product(libXrdPosixPreload, "libXrdPosixPreload.so.2")
-JLLWrappers.@declare_file_product(libXrdPss)
 JLLWrappers.@declare_file_product(libXrdSec)
 JLLWrappers.@declare_file_product(libXrdSecProt)
+JLLWrappers.@declare_file_product(libXrdSecgsi)
 JLLWrappers.@declare_file_product(libXrdSecgsiAUTHZVO)
 JLLWrappers.@declare_file_product(libXrdSecgsiGMAPDN)
-JLLWrappers.@declare_file_product(libXrdSecunix)
-JLLWrappers.@declare_library_product(libXrdServer, "libXrdServer.so.3")
-JLLWrappers.@declare_file_product(libXrdSsiLog)
-JLLWrappers.@declare_library_product(libXrdSsiShMap, "libXrdSsiShMap.so.2")
-JLLWrappers.@declare_file_product(libXrdThrottle)
-JLLWrappers.@declare_library_product(libXrdUtils, "libXrdUtils.so.3")
-JLLWrappers.@declare_library_product(libXrdXml, "libXrdXml.so.3")
-JLLWrappers.@declare_executable_product(cmsd)
-JLLWrappers.@declare_executable_product(frm_purged)
-JLLWrappers.@declare_executable_product(frm_xfragent)
-JLLWrappers.@declare_executable_product(frm_xfrd)
-JLLWrappers.@declare_file_product(libXrdOfsPrepGPI)
-JLLWrappers.@declare_file_product(libXrdSecgsi)
 JLLWrappers.@declare_file_product(libXrdSecpwd)
 JLLWrappers.@declare_file_product(libXrdSecsss)
+JLLWrappers.@declare_file_product(libXrdSecunix)
 JLLWrappers.@declare_file_product(libXrdSsi)
-JLLWrappers.@declare_library_product(libXrdSsiLib, "libXrdSsiLib.so.2")
+JLLWrappers.@declare_file_product(libXrdSsiLog)
+JLLWrappers.@declare_library_product(libXrdSsiShMap, "libXrdSsiShMap.so.2")
+JLLWrappers.@declare_executable_product(cconfig)
+JLLWrappers.@declare_executable_product(frm_xfragent)
+JLLWrappers.@declare_file_product(libXrdOfsPrepGPI)
+JLLWrappers.@declare_file_product(libXrdPss)
+JLLWrappers.@declare_library_product(libXrdServer, "libXrdServer.so.3")
+JLLWrappers.@declare_file_product(libXrdThrottle)
+JLLWrappers.@declare_library_product(libXrdXml, "libXrdXml.so.3")
 JLLWrappers.@declare_file_product(libXrdXrootd)
 JLLWrappers.@declare_executable_product(mpxstats)
 JLLWrappers.@declare_executable_product(wait41)
@@ -76,34 +76,6 @@ function __init__()
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
-    JLLWrappers.@init_library_product(
-        libXrdCl,
-        "lib/libXrdCl.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdCryptoLite,
-        "lib/libXrdCryptoLite.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdFfs,
-        "lib/libXrdFfs.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_executable_product(
-        cconfig,
-        "bin/cconfig",
-    )
-
-    JLLWrappers.@init_executable_product(
-        frm_admin,
-        "bin/frm_admin",
-    )
-
     JLLWrappers.@init_file_product(
         libXrdBlacklistDecision,
         "lib/libXrdBlacklistDecision-5.so",
@@ -114,14 +86,10 @@ function __init__()
         "lib/libXrdBwm-5.so",
     )
 
-    JLLWrappers.@init_file_product(
-        libXrdCksCalczcrc32,
-        "lib/libXrdCksCalczcrc32-5.so",
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdClProxyPlugin,
-        "lib/libXrdClProxyPlugin-5.so",
+    JLLWrappers.@init_library_product(
+        libXrdCl,
+        "lib/libXrdCl.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_file_product(
@@ -138,6 +106,66 @@ function __init__()
     JLLWrappers.@init_file_product(
         libXrdCryptossl,
         "lib/libXrdCryptossl-5.so",
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdFfs,
+        "lib/libXrdFfs.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdPosix,
+        "lib/libXrdPosix.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdSsiLib,
+        "lib/libXrdSsiLib.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdUtils,
+        "lib/libXrdUtils.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_executable_product(
+        cmsd,
+        "bin/cmsd",
+    )
+
+    JLLWrappers.@init_executable_product(
+        frm_admin,
+        "bin/frm_admin",
+    )
+
+    JLLWrappers.@init_executable_product(
+        frm_purged,
+        "bin/frm_purged",
+    )
+
+    JLLWrappers.@init_executable_product(
+        frm_xfrd,
+        "bin/frm_xfrd",
+    )
+
+    JLLWrappers.@init_file_product(
+        libXrdCksCalczcrc32,
+        "lib/libXrdCksCalczcrc32-5.so",
+    )
+
+    JLLWrappers.@init_file_product(
+        libXrdClProxyPlugin,
+        "lib/libXrdClProxyPlugin-5.so",
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdCryptoLite,
+        "lib/libXrdCryptoLite.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_file_product(
@@ -172,20 +200,9 @@ function __init__()
     )
 
     JLLWrappers.@init_library_product(
-        libXrdPosix,
-        "lib/libXrdPosix.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
         libXrdPosixPreload,
         "lib/libXrdPosixPreload.so",
         RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdPss,
-        "lib/libXrdPss-5.so",
     )
 
     JLLWrappers.@init_file_product(
@@ -199,6 +216,11 @@ function __init__()
     )
 
     JLLWrappers.@init_file_product(
+        libXrdSecgsi,
+        "lib/libXrdSecgsi-5.so",
+    )
+
+    JLLWrappers.@init_file_product(
         libXrdSecgsiAUTHZVO,
         "lib/libXrdSecgsiAUTHZVO-5.so",
     )
@@ -206,75 +228,6 @@ function __init__()
     JLLWrappers.@init_file_product(
         libXrdSecgsiGMAPDN,
         "lib/libXrdSecgsiGMAPDN-5.so",
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdSecunix,
-        "lib/libXrdSecunix-5.so",
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdServer,
-        "lib/libXrdServer.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdSsiLog,
-        "lib/libXrdSsiLog-5.so",
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdSsiShMap,
-        "lib/libXrdSsiShMap.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdThrottle,
-        "lib/libXrdThrottle-5.so",
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdUtils,
-        "lib/libXrdUtils.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_library_product(
-        libXrdXml,
-        "lib/libXrdXml.so",
-        RTLD_LAZY | RTLD_DEEPBIND,
-    )
-
-    JLLWrappers.@init_executable_product(
-        cmsd,
-        "bin/cmsd",
-    )
-
-    JLLWrappers.@init_executable_product(
-        frm_purged,
-        "bin/frm_purged",
-    )
-
-    JLLWrappers.@init_executable_product(
-        frm_xfragent,
-        "bin/frm_xfragent",
-    )
-
-    JLLWrappers.@init_executable_product(
-        frm_xfrd,
-        "bin/frm_xfrd",
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdOfsPrepGPI,
-        "lib/libXrdOfsPrepGPI-5.so",
-    )
-
-    JLLWrappers.@init_file_product(
-        libXrdSecgsi,
-        "lib/libXrdSecgsi-5.so",
     )
 
     JLLWrappers.@init_file_product(
@@ -288,13 +241,60 @@ function __init__()
     )
 
     JLLWrappers.@init_file_product(
+        libXrdSecunix,
+        "lib/libXrdSecunix-5.so",
+    )
+
+    JLLWrappers.@init_file_product(
         libXrdSsi,
         "lib/libXrdSsi-5.so",
     )
 
+    JLLWrappers.@init_file_product(
+        libXrdSsiLog,
+        "lib/libXrdSsiLog-5.so",
+    )
+
     JLLWrappers.@init_library_product(
-        libXrdSsiLib,
-        "lib/libXrdSsiLib.so",
+        libXrdSsiShMap,
+        "lib/libXrdSsiShMap.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_executable_product(
+        cconfig,
+        "bin/cconfig",
+    )
+
+    JLLWrappers.@init_executable_product(
+        frm_xfragent,
+        "bin/frm_xfragent",
+    )
+
+    JLLWrappers.@init_file_product(
+        libXrdOfsPrepGPI,
+        "lib/libXrdOfsPrepGPI-5.so",
+    )
+
+    JLLWrappers.@init_file_product(
+        libXrdPss,
+        "lib/libXrdPss-5.so",
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdServer,
+        "lib/libXrdServer.so",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_file_product(
+        libXrdThrottle,
+        "lib/libXrdThrottle-5.so",
+    )
+
+    JLLWrappers.@init_library_product(
+        libXrdXml,
+        "lib/libXrdXml.so",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
